@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  get 'picker_data/generate'
+
+  get 'summary/index'
+
   get 'data/index'
   get 'data/registers' => 'data#getRegisters'
-  get 'data/registersForSelect' => 'data#getRegistersForSelect'
   get 'data/fields' => 'data#getFields'
-  get 'data/registerWithPhase/:register' => 'data#registerWithPhase'
+  get 'data/summary' => 'data#summary'
   post 'data/saveRegister', to: 'data#saveRegister'
+  post 'data/saveField', to: 'data#saveField'
 
-  root 'data#index'
+  root 'data#getRegisters'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

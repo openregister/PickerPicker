@@ -3,4 +3,7 @@
 
 <h3>Fields for register: <%= @register['register'] %></h3>
 
-<%= select_tag :fieldName, options_for_select(@fields) %>
+<%= form_tag("saveField", method: ":post") do %>
+    <%= select_tag :fieldName, options_for_select(@fields) %>
+    <%= submit_tag "Save" %>
+<% end %>

@@ -1,33 +1,12 @@
-<h1>Data#index</h1>
+<h1>Registers</h1>
 <p>Find me in app/views/data/index.html.erb</p>
 
-<%= select_tag :registerName, options_from_collection_for_select(@registers, 'register', 'register') %>
+<%= form_tag("/data/saveRegister", method: ":post") do %>
+    <%= select_tag :registerName, options_for_select(@mappedRegisters) %>
+    <%= submit_tag "Save" %>
+
+<% end %>
 
 
 
-<h3>Registers</h3>
-<ul>
-  <% @registers.each do |register| %>
 
-      <li><%= register.register %></li>
-
-  <% end %>
-</ul>
-
-<!--<h3>Alpha Registers</h3>-->
-<!--<ul>-->
-<!--<% @registers.each do |register| %>-->
-
-<!--<li><%= register.register %></li>-->
-
-<!--<% end %>-->
-<!--</ul>-->
-
-<!--<h3>Beta Registers</h3>-->
-<!--<ul>-->
-  <!--<% @registers.each do |register| %>-->
-
-      <!--<li><%= register.register %></li>-->
-
-  <!--<% end %>-->
-<!--</ul>-->
