@@ -1,0 +1,12 @@
+<h1>Registers</h1>
+<p>Find me in app/views/data/index.html.erb</p>
+
+<%= form_tag("saveRegister", method: ":post") do %>
+    <%= select_tag :registerName, options_for_select(@mappedRegisters) %>
+    <%= submit_tag "Save" %>
+
+<% end %>
+
+
+
+
