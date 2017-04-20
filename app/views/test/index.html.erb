@@ -1,0 +1,45 @@
+
+
+<%= label_tag(:key, "Choose option...", for: "data-picker") %>
+<%= select_tag(:key, options_for_select(@options), {id: "picker"}) %>
+
+<!--<div id="picker" class="typeahead-wrapper"></div>-->
+
+<script type="text/javascript" src="https://unpkg.com/lodash@4.17.4"></script>
+<script type="text/javascript" src="https://unpkg.com/jquery@1.11.3"></script>
+<script type="text/javascript" src="https://unpkg.com/corejs-typeahead@1.1.1/dist/bloodhound.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/openregister/rails-picker-example/guide-data-file/public/suggestion-engine.js"></script>
+<script type="text/javascript" src="/assets/accessible-typeahead.min.js"></script>
+
+<!--<script type="text/javascript" src="https://unpkg.com/accessible-typeahead@0.3.1"></script>-->
+
+<script type="text/javascript">
+      var id = 'data-picker'
+      /////////////////
+      // Graph version
+
+      var pathToGraph = '/assets/picker-input.sample.json'
+      var select = $('#picker')
+      var container = $('<div class="form-control-1-2"></div>')
+      select.after(container)
+      AccessibleTypeahead({
+          element: container[0],
+          id: id,
+          source: locationPickerSuggestions(pathToGraph)
+      });
+
+//      var id = 'location-select-box'
+//      AccessibleTypeahead({
+//          element: element,
+//          id: id,
+//          source: locationPickerSuggestions(pathToGraph)
+//      });
+
+      ///////////////////////////////////
+      // Progressive enhancement version
+//      var element = document.querySelector('#picker')
+//      AccessibleTypeahead.enhanceSelectElement({
+//          defaultValue: element.options[element.options.selectedIndex].innerHTML,
+//          selectElement: element
+//      });
+</script>
