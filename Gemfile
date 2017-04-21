@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'openregister-ruby', git: 'https://github.com/openregister/openregister-ruby.git'
 
+gem 'govuk_template'
+gem 'govuk_frontend_toolkit'
+gem 'govuk_elements_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

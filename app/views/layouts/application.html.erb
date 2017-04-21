@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Firebreak</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://unpkg.com/accessible-typeahead@0.3.1/examples/styled.css" />
-</head>
-<body>
+<% content_for :head do %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag '//unpkg.com/accessible-typeahead@0.4.0/examples/styled.css' %>
+    <%= javascript_include_tag "//unpkg.com/accessible-typeahead@0.4.0" %>
+<% end %>
 
-<%= yield %>
+<%= content_for :content do %>
+  <main role='main' class="container" tabindex='-1' >
+    <div class="grid-row">
+      <div class='column-one-half'>
+        <%= yield %>
+      </div>
+    </div>
+  </main>
+<% end %>
 
-</body>
-</html>
+<%= render file: 'layouts/govuk_template' %>

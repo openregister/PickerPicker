@@ -22,6 +22,11 @@ class PickerDataService
     # path = Rails.root.join("app", "assets", "static", "picker-input.sample.json");
     # return File.read(path);
 
+    path = Rails.root.join("app", "assets", "static", "picker-data.json")
+    file = File.new(path, "w+");
+    file.puts(captured_stdout)
+    file.close
+
     return "stdout: " + captured_stdout + ", stderr: " + captured_stderr
   end
 end

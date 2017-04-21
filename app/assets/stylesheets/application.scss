@@ -1,0 +1,6 @@
+@import 'govuk-elements';
+
+.container {
+  @extend %site-width-container;
+  padding-bottom: 60px;
+}
