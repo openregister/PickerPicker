@@ -3,11 +3,12 @@ require 'rubygems'
 require 'zip'
 
 class PickerDataService
-  def generate(registerUri, fieldName)
+  def generate(registerName, registerUri, fieldName)
     captured_stdout = ''
     captured_stderr = ''
 
-    commands = "scripts/test.sh " + registerUri + " " + fieldName;
+    # commands = "scripts/test.sh " + registerUri + " " + fieldName;
+    commands = "curl "+ registerUri+ "/download-rsf | csi -s /Users/karlbaker/work/kibitz/register-simple-picker.scm "+ registerName +" "+ fieldName +" | csi -s /Users/karlbaker/work/kibitz/picker-input-to-json.scm"
     stdin, stdout, stderr, wait_thr = Open3.popen3(commands)
 
     pid = wait_thr.pid  # pid of the started process.

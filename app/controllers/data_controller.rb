@@ -33,7 +33,7 @@ class DataController < ApplicationController
     session[:fieldName] = params[:fieldName]
     @register = session[:register]
     @field = session[:fieldName]
-    @pickerData = PickerDataService.new().generate(@register['_uri'], @field)
+    @pickerData = PickerDataService.new().generate(@register['register'], @register['_uri'], @field)
 
     redirect_to controller: 'data', action: 'preview'
   end
@@ -75,7 +75,7 @@ class DataController < ApplicationController
   def summary()
     @register = session[:register]
     @field = session[:fieldName]
-    @pickerData = PickerDataService.new().generate(@register['_uri'], @field)
+    @pickerData = PickerDataService.new().generate(@register['register'], @register['_uri'], @field)
 
     render "summary"
   end
