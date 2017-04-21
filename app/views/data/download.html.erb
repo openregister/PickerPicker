@@ -1,0 +1,57 @@
+<h1 class="heading-large">Preview and download your code</h1>
+
+<form class="form" action="confirmation" method="post">
+
+  <div class="form-group">
+    <fieldset>
+      <legend class="visually-hidden">Preview and download your code</legend>
+
+      <div class="content-block">
+        <h2>Your picker and dataset is available as two files:</h2>
+        </br>
+        <ul>
+          <li>picker.html</li>
+          <li>data.json</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <details>
+        <summary><span class="summary">Preview picker.html</span></summary>
+        <div>
+          <pre style="white-space: pre-wrap;"><code><%= @pickerHtml %></code></pre>
+        </div>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary>
+          <span class="summary">Preview data.json</span>
+        </summary>
+
+        <div>
+          <pre style="white-space: pre-wrap;"><code><%= @pickerData %></code></pre>
+        </div>
+      </details>
+
+    </fieldset>
+
+    <hr />
+
+    <div class="form-download">
+      <p>
+        <!--<i class="icon icon-file-download"></i>-->
+        <a href="/data/downloadZip">Download all code files (Zip)</a>
+      </p>
+    </div>
+
+  </div>
+
+  <p>
+    <a class="button" href="/data/confirmation" role="button">Continue</a>
+  </p>
+
+</form>
+

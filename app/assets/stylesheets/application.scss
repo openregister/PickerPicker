@@ -4,3 +4,14 @@
   @extend %site-width-container;
   padding-bottom: 60px;
 }
+
+.form-download a {
+  display: block;
+  font-weight: 600;
+  min-height: 2.5em;
+  padding: 0 0 0 2.5em;
+  background-image: url(https://assets.publishing.service.gov.uk/static/icon-file-download-2x-dea512aab23300d178acab4899f5adb892ea1f2f458cd6f3c3b6817698e84999.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 25px 25px;
+}

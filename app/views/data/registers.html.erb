@@ -1,9 +1,13 @@
-<h1 class="heading-xlarge">Registers</h1>
-<p>Find me in app/views/data/index.html.erb</p>
+<h1 class="heading-large">Which dataset do you need to run your service?</h1>
 
 <%= form_tag("/data/saveRegister", method: ":post") do %>
-    <%= select_tag :registerName, options_for_select(@mappedRegisters) %>
-    <%= submit_tag "Save" %>
+    <div class="form-group">
+      <%= select_tag :registerName, options_for_select(@mappedRegisters) %>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag "Continue", {class: "button"} %>
+    </div>
 
 <% end %>
 

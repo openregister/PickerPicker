@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   get 'data/index'
   get 'data/registers' => 'data#getRegisters'
   get 'data/fields' => 'data#getFields'
+  get 'data/preview' => 'data#preview'
+  get 'data/download' => 'data#download'
+  get 'data/downloadZip' => 'data#downloadZip'
+  get 'data/confirmation' => 'data#confirmation'
   get 'data/summary' => 'data#summary'
   post 'data/saveRegister', to: 'data#saveRegister'
   post 'data/saveField', to: 'data#saveField'
 
-  root 'data#getRegisters'
+  root 'data#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

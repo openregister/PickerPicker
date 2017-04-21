@@ -1,9 +1,13 @@
-<h1>Fields</h1>
-<p>Find me in app/views/data/index.html.erb</p>
+<h1 class="heading-large">Which field do you want to be displayed in your picker?</h1>
 
-<h3>Fields for register: <%= @register['register'] %></h3>
+<!--<h3>Fields for register: <%= @register['register'] %></h3>-->
 
 <%= form_tag("saveField", method: ":post") do %>
-    <%= select_tag :fieldName, options_for_select(@fields) %>
-    <%= submit_tag "Save" %>
+    <div class="form-group">
+      <%= select_tag :fieldName, options_for_select(@fields) %>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag "Preview your dataset", {class: "button"} %>
+    </div>
 <% end %>

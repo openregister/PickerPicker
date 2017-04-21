@@ -1,4 +1,6 @@
 require 'openregister'
+require 'rubygems'
+require 'zip'
 
 class DataController < ApplicationController
   before_filter :initializeRegisters
@@ -29,8 +31,45 @@ class DataController < ApplicationController
 
   def saveField()
     session[:fieldName] = params[:fieldName]
+    @register = session[:register]
+    @field = session[:fieldName]
+    @pickerData = PickerDataService.new().generate(@register['_uri'], @field)
 
-    redirect_to controller: 'data', action: 'summary'
+    redirect_to controller: 'data', action: 'preview'
+  end
+
+  def preview()
+    @register = session[:register]
+    @field = session[:fieldName]
+
+    render "preview"
+  end
+
+  def download()
+    @pickerHtml = File.read(Rails.root.join("app", "assets", "static", "picker.html"))
+    @pickerData = File.read(Rails.root.join("app", "assets", "static", "picker-data.json"))
+
+    render "download"
+  end
+
+  def downloadZip()
+    filesToZip = ["picker.html", "picker-data.json"]
+    source = "/Users/karlbaker/RubymineProjects/Firebreak/app/assets/static"
+    zipFileName = "code.zip"
+    file = Tempfile.new(zipFileName)
+
+    Zip::File.open(file.path, Zip::File::CREATE) do |zipFile|
+      filesToZip.each do |filename|
+        zipFile.add(filename, source + '/' + filename)
+      end
+    end
+
+    zip_data = File.read(file.path)
+    send_data(zip_data, :type => 'application/zip', :filename => zipFileName)
+  end
+
+  def confirmation()
+    render "confirmation"
   end
 
   def summary()

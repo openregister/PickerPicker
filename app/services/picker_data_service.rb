@@ -1,4 +1,6 @@
 require 'open3'
+require 'rubygems'
+require 'zip'
 
 class PickerDataService
   def generate(registerUri, fieldName)
@@ -27,6 +29,20 @@ class PickerDataService
     file.puts(captured_stdout)
     file.close
 
-    return "stdout: " + captured_stdout + ", stderr: " + captured_stderr
+    # createZip()
+
+    return captured_stdout
+    # return "stdout: " + captured_stdout + ", stderr: " + captured_stderr
+  end
+
+  def createZip()
+    filesToZip = [Rails.root.join("app", "assets", "static", "picker.html"), Rails.root.join("app", "assets", "static", "'picker-data.json'")]
+    destination = Rails.root.join("app", "assets", "static", "code.zip")
+
+    Zip::File.open(destination, Zip::File::CREATE) do |zipFile|
+      filesToZip.each do |filename|
+        zipFile.add(filename, destination)
+      end
+    end
   end
 end
