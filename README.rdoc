@@ -1,28 +1,23 @@
-== README
+# Picker Picker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This service uses the following tools to generate a working picker based on register data
 
-Things you may want to cover:
+- accessible-typeahead (https://unpkg.com/accessible-typeahead)
+- openregister-picker-engine (https://unpkg.com/openregister-picker-engine)
 
-* Ruby version
+### Building and running
 
-* System dependencies
+```
+brew install chicken
+chicken-install medea csv-xml clojurian list-utils vector-lib utf8
 
-* Configuration
+git clone -b picker-picker --single-branch git@github.com:openregister/kibitz.git
+git clone git@github.com:openregister/morc.git
 
-* Database creation
+cd morc
+chicken-install
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+cd PickerPicker
+bundle stall
+rails server
+```
