@@ -18,3 +18,5 @@ node_modules
 /log/*
 !/log/.keep
 /tmp
+
+app/assets/static/picker-data.json
