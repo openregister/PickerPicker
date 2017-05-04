@@ -18,6 +18,6 @@ cd morc
 chicken-install
 
 cd PickerPicker
-bundle stall
+bundle install
 rails server
 ```
