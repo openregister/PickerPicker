@@ -3,11 +3,11 @@
 <!--<h3>Fields for register: <%= @register['register'] %></h3>-->
 
 <%= form_tag("saveField", method: ":post") do %>
-    <div class="form-group">
-      <%= select_tag :fieldName, options_for_select(@fields) %>
-    </div>
+  <div class="form-group">
+    <%= select_tag :fieldName, options_for_select(@fields), class: "form-control" %>
+  </div>
 
-    <div class="form-group">
-      <%= submit_tag "Preview your component", {class: "button"} %>
-    </div>
+  <div class="form-group">
+    <%= submit_tag "Preview your component", {class: "button"} %>
+  </div>
 <% end %>

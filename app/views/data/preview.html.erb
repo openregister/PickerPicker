@@ -16,15 +16,14 @@
 <script type="text/javascript" src="https://unpkg.com/accessible-typeahead@0.4.0"></script>
 
 <script type="text/javascript">
-    var id = 'data-picker'
-    var pathToGraph = '/assets/picker-data.json'
-    var select = $('#picker')
-    var container = $('<div class="form-control-1-2"></div>')
-    select.after(container)
-    AccessibleTypeahead({
-        element: container[0],
-        id: id,
-        source: locationPickerSuggestions(pathToGraph)
-    });
+  var id = 'data-picker'
+  var pathToGraph = '/assets/picker-data.json'
+  var select = $('#picker')
+  var container = $('<div class="form-control-1-2"></div>')
+  select.after(container)
+  AccessibleTypeahead({
+    element: container[0],
+    id: id,
+    source: locationPickerSuggestions(pathToGraph)
+  });
 </script>
-
