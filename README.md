@@ -11,7 +11,6 @@ This service uses the following tools to generate a working picker based on regi
 brew install chicken
 chicken-install medea csv-xml clojurian list-utils vector-lib utf8
 
-git clone -b picker-picker --single-branch git@github.com:openregister/kibitz.git
 git clone git@github.com:openregister/morc.git
 
 cd morc

@@ -8,7 +8,7 @@ class PickerDataService
     captured_stderr = ''
 
     # commands = "scripts/test.sh " + registerUri + " " + fieldName;
-    commands = "curl "+ registerUri+ "/download-rsf | csi -s /Users/karlbaker/work/kibitz/register-simple-picker.scm "+ registerName +" "+ fieldName +" | csi -s /Users/karlbaker/work/kibitz/picker-input-to-json.scm"
+    commands = "curl "+ registerUri+ "/download-rsf | csi -s #{Rails.root}/public/register-simple-picker.scm "+ registerName +" "+ fieldName + " | csi -s #{Rails.root}/public/picker-input-to-json.scm"
     stdin, stdout, stderr, wait_thr = Open3.popen3(commands)
 
     pid = wait_thr.pid  # pid of the started process.
