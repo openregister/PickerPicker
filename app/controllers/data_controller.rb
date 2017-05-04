@@ -81,8 +81,8 @@ class DataController < ApplicationController
   end
 
   def initializeRegisters()
-    @registers = OpenRegister.registers :discovery
+    @registers = OpenRegister.registers :beta
     @registers.concat(OpenRegister.registers :alpha)
-    @registers.concat(OpenRegister.registers :beta)
+    @registers.concat(OpenRegister.registers :discovery)
   end
 end
