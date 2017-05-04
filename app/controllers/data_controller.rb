@@ -54,8 +54,8 @@ class DataController < ApplicationController
 
   def downloadZip()
     filesToZip = ["picker.html", "picker-data.json"]
-    source = "/Users/karlbaker/RubymineProjects/Firebreak/app/assets/static"
-    zipFileName = "code.zip"
+    source = "#{Rails.root}/app/assets/static"
+    zipFileName = "picker-code.zip"
     file = Tempfile.new(zipFileName)
 
     Zip::File.open(file.path, Zip::File::CREATE) do |zipFile|
